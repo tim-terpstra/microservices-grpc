@@ -1,0 +1,22 @@
+
+syntax = "proto3";
+
+package messages;
+
+service CouponService {
+  rpc ValidateCoupon(CouponValidationRequest) returns (CouponValidationResponse);
+}
+
+message OrderRequest {
+  string customer_id = 1;
+  string coupon_code = 2;
+}
+
+message CouponValidationRequest {
+  string coupon_code = 1;
+}
+
+message CouponValidationResponse {
+  bool valid = 1;
+  string message = 2;
+}
